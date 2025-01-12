@@ -1,0 +1,28 @@
+/* style.css */
+.root {
+    -fx-background-color: #2c3e50;
+}
+
+.title-label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 16px;
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 18px;
+    -fx-padding: 15px 30px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
