@@ -1,0 +1,95 @@
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    gender VARCHAR(10),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    faculty VARCHAR(100),
+    major VARCHAR(100),
+    psycho_pedagogical_module BOOLEAN
+);
+
+CREATE TABLE classes (
+    id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES students(id),
+    class_name VARCHAR(100),
+    grade VARCHAR(2)
+);
+
+INSERT INTO students (first_name, last_name, age, gender, email, phone, address, faculty, major, psycho_pedagogical_module) VALUES
+('Ion', 'Popescu', 20, 'Masculin', 'ion.popescu@gmail.ro', '0712-345-678', 'Strada Principală 123', 'Științe', 'Biologie', true),
+('Maria', 'Ionescu', 22, 'Feminin', 'maria.ionescu@gmail.ro', '0723-456-789', 'Strada Ulmului 456', 'Arte', 'Istorie', false),
+('Ana', 'Georgescu', 21, 'Feminin', 'ana.georgescu@gmail.ro', '0734-567-890', 'Strada Stejarului 789', 'Inginerie', 'Informatică', true),
+('Mihai', 'Dumitrescu', 23, 'Masculin', 'mihai.dumitrescu@gmail.ro', '0745-678-901', 'Strada Pinului 101', 'Afaceri', 'Marketing', false),
+('George', 'Marinescu', 20, 'Masculin', 'george.marinescu@gmail.ro', '0756-789-012', 'Strada Arțarului 202', 'Științe', 'Chimie', true),
+('Elena', 'Stanescu', 22, 'Feminin', 'elena.stanescu@gmail.ro', '0767-890-123', 'Strada Mesteacănului 303', 'Arte', 'Literatură', false),
+('Ioana', 'Petrescu', 21, 'Feminin', 'ioana.petrescu@gmail.ro', '0778-901-234', 'Strada Cedrului 404', 'Inginerie', 'Inginerie Mecanică', true),
+('Vasile', 'Radu', 23, 'Masculin', 'vasile.radu@gmail.ro', '0789-012-345', 'Strada Molidului 505', 'Afaceri', 'Finanțe', false),
+('Gabriela', 'Constantinescu', 20, 'Feminin', 'gabriela.constantinescu@gmail.ro', '0790-123-456', 'Strada Salciei 606', 'Științe', 'Fizică', true),
+('Florin', 'Andrei', 22, 'Masculin', 'florin.andrei@gmail.ro', '0701-234-567', 'Strada Frasinului 707', 'Arte', 'Filosofie', false);
+
+drop table classes;
+
+CREATE TABLE classes (
+    id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES students(id),
+    class_name VARCHAR(100),
+    grade FLOAT
+);
+
+INSERT INTO classes (student_id, class_name, grade) VALUES
+(1, 'Biologie', 9.5),
+(1, 'Chimie', 8.7),
+(1, 'Fizică', 9.0),
+(2, 'Istorie', 7.5),
+(2, 'Literatură', 8.0),
+(2, 'Filosofie', 7.8),
+(3, 'Informatică', 9.2),
+(3, 'Matematică', 8.9),
+(3, 'Fizică', 9.1),
+(4, 'Marketing', 7.4),
+(4, 'Finanțe', 8.3),
+(4, 'Management', 7.9),
+(5, 'Chimie', 8.5),
+(5, 'Biologie', 9.3),
+(5, 'Fizică', 8.8),
+(6, 'Literatură', 7.6),
+(6, 'Istorie', 8.1),
+(6, 'Filosofie', 7.7),
+(7, 'Inginerie Mecanică', 9.4),
+(7, 'Termodinamică', 8.6),
+(7, 'Matematică', 9.0),
+(8, 'Finanțe', 7.8),
+(8, 'Marketing', 8.2),
+(8, 'Management', 7.5),
+(9, 'Fizică', 9.1),
+(9, 'Chimie', 8.9),
+(9, 'Biologie', 9.2),
+(10, 'Filosofie', 7.3),
+(10, 'Istorie', 8.4),
+(10, 'Literatură', 7.9);
+
+CREATE TABLE professor (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    faculty VARCHAR(100) NOT NULL,
+    class_name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO professor (first_name, last_name, faculty, class_name) VALUES
+('Ion', 'Popescu', 'Matematică', 'Algebră'),
+('Maria', 'Ionescu', 'Fizică', 'Mecanică Cuantică'),
+('George', 'Georgescu', 'Informatică', 'Structuri de Date'),
+('Elena', 'Marinescu', 'Chimie', 'Chimie Organică'),
+('Mihai', 'Dumitrescu', 'Biologie', 'Genetică'),
+('Ana', 'Stanescu', 'Istorie', 'Istorie Modernă'),
+('Vasile', 'Radu', 'Filosofie', 'Etică'),
+('Ioana', 'Nistor', 'Literatură', 'Literatură Română'),
+('Florin', 'Petrescu', 'Inginerie', 'Termodinamică'),
+('Gabriela', 'Constantinescu', 'Economie', 'Microeconomie');
+
+select * from professor;
